@@ -9,7 +9,6 @@ import service.TelephoneService;
 
 import java.util.Collection;
 @AllArgsConstructor
-
 @RestController
 @RequestMapping("/telephone")
 public class TelephoneController {
