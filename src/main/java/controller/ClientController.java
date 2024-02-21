@@ -1,6 +1,8 @@
 package controller;
 
 import entity.Client;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.ClientService;
 
@@ -8,12 +10,9 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/client")
+@AllArgsConstructor
 public class ClientController {
     private final ClientService service;
-
-    public ClientController(ClientService service) {
-        this.service = service;
-    }
 
     @PostMapping
     public Client create(@RequestBody Client client) {

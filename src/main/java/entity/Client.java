@@ -20,8 +20,8 @@ public class Client {
 
     };
 
-//    @OneToMany(mappedBy = "client")
-//    @JsonIgnore
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private Collection<Email>email;
     @OneToMany(mappedBy = "client")
     @JsonIgnore
@@ -67,7 +67,8 @@ public class Client {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Client client)) return false;
+        if (!(o instanceof Client)) return false;
+        Client client = (Client) o;
         return Objects.equals(id, client.id) && Objects.equals(name, client.name);
     }
 

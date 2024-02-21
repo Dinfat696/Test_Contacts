@@ -56,7 +56,8 @@ public class Email {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Email email1)) return false;
+        if (!(o instanceof Email)) return false;
+        Email email1 = (Email) o;
         return Objects.equals(id, email1.id) && Objects.equals(email, email1.email);
     }
 

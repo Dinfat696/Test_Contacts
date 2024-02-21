@@ -4,25 +4,23 @@ import entity.Client;
 import entity.Email;
 import exception.ClientNotFoundException;
 import exception.EmailNotFoundException;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import repository.ClientRepository;
 import repository.EmailRepository;
 import repository.TelephoneRepository;
 
 import java.util.Collection;
-
+@AllArgsConstructor
+@Service
 public class EmailService {
     @Autowired
     private final ClientRepository clientRepository;
+    @Autowired
     private final EmailRepository emailRepository;
+    @Autowired
     private final TelephoneRepository telephoneRepository;
-
-    public EmailService(ClientRepository clientRepository, EmailRepository emailRepository, TelephoneRepository telephoneRepository) {
-        this.clientRepository = clientRepository;
-        this.emailRepository = emailRepository;
-        this.telephoneRepository = telephoneRepository;
-    }
-
 
 
     public Email create(Email email) {
@@ -38,11 +36,13 @@ public class EmailService {
     public Email getById(Long id) {
         return emailRepository.findById(id).orElseThrow(EmailNotFoundException::new);
     }
-    public Collection<Email> getAll(){
+
+    public Collection<Email> getAll() {
         return emailRepository.findAll();
     }
-    public Email remove(Long id){
-        Email email=emailRepository.findById(id).orElseThrow(ClientNotFoundException::new);
+
+    public Email remove(Long id) {
+        Email email = emailRepository.findById(id).orElseThrow(ClientNotFoundException::new);
         emailRepository.delete(email);
         return email;
     }

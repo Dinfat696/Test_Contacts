@@ -54,7 +54,8 @@ public class Telephone {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Telephone telephone)) return false;
+        if (!(o instanceof Telephone)) return false;
+        Telephone telephone = (Telephone) o;
         return Objects.equals(id, telephone.id) && Objects.equals(number, telephone.number);
     }
 

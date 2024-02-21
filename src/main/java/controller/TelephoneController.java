@@ -2,19 +2,19 @@ package controller;
 
 import entity.Client;
 import entity.Telephone;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import service.ClientService;
 import service.TelephoneService;
 
 import java.util.Collection;
+@AllArgsConstructor
 
+@RestController
+@RequestMapping("/telephone")
 public class TelephoneController {
 
     private final TelephoneService service;
-
-    public TelephoneController(TelephoneService service) {
-        this.service = service;
-    }
 
     @PostMapping
     public Telephone create(@RequestBody Telephone telephone) {

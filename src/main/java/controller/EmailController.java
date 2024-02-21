@@ -2,19 +2,18 @@ package controller;
 
 import entity.Client;
 import entity.Email;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import service.ClientService;
 import service.EmailService;
 
 import java.util.Collection;
-
+@AllArgsConstructor
+@RestController
+@RequestMapping("/email")
 public class EmailController {
 
     private final EmailService service;
-
-    public EmailController(EmailService service) {
-        this.service = service;
-    }
 
 
     @PostMapping
